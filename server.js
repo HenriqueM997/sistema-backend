@@ -14,6 +14,11 @@ const db = mysql.createConnection({
   database: 'psicologo_db'
 });
 
+app.get('/health', (req, res) => res.send('OK'));
+
+const port = process.env.PORT || 3001;
+app.listen(port, () => console.log(`Servidor rodando na porta ${port}`));
+
 db.connect(err => {
   if (err) {
     console.error('Erro ao conectar com o banco:', err);
